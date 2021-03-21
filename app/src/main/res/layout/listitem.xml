@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textStyle="bold"
-        android:textColor="@color/colorAccent"
+        android:textColor="#accd72"
         android:text="Planète" />
 
     <CheckBox
