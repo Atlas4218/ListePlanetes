@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:gravity="center"
@@ -13,18 +14,20 @@
         android:layout_weight="1"
         android:textStyle="bold"
         android:textColor="#accd72"
-        android:text="Planète" />
+        android:text="Planète"
+        tools:ignore="HardcodedText" />
 
     <CheckBox
         android:id="@+id/checkbox"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.6"
-        android:text="Certain" />
+        android:layout_width="wrap_content"
+        android:layout_weight="0.2"
+        android:text="Certain"
+        tools:ignore="HardcodedText" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
+        android:id="@+id/choixTaille"
+        android:layout_width="47dp"
         android:layout_height="50dp"
         android:layout_weight="0.4">
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
@@ -14,8 +15,9 @@ import android.widget.TextView;
 
 public class PlaneteAdapter extends BaseAdapter {
 
-    Data donnees = new Data();
+    Data donnees;
     MainActivity main;
+    int nbChecked=0;
 
 
     @Override
@@ -44,7 +46,7 @@ public class PlaneteAdapter extends BaseAdapter {
 
         TextView nomPlanete = (TextView) itemView.findViewById(R.id.textView);
         final CheckBox checkBox = (CheckBox) itemView.findViewById(R.id.checkbox);
-        final Spinner spinner = (Spinner) itemView.findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) itemView.findViewById(R.id.choixTaille);
 
         nomPlanete.setText(donnees.getNoms().get(i));
 
@@ -59,13 +61,33 @@ public class PlaneteAdapter extends BaseAdapter {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 CheckBox checkBox = (CheckBox) compoundButton.findViewById(R.id.checkbox);
                 spinner.setEnabled(!checkBox.isChecked());
-                spinadapter.notifyDataSetChanged();
+                if(checkBox.isChecked()){
+
+                    nbChecked++;
+                } else{
+                    nbChecked--;
+                }
+                Button btn = main.confirmButton;
+                if (nbChecked==donnees.getNoms().size())
+                    btn.setEnabled(true);
+                else
+                    btn.setEnabled(false);
             }
         });
+
+
 
         return itemView;
     }
     public void setMain(MainActivity main){
         this.main=main;
+    }
+
+    public void verification() {
+
+    }
+
+    public void setData(Data donnees) {
+        this.donnees = donnees;
     }
 }
